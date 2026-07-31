@@ -18,9 +18,11 @@ isolated public share links. See the [WebVault README](https://github.com/marcon
 > | Field | What to do |
 > |-------|------------|
 > | **Project name** | Your vault's name. It becomes the default URL (`<name>.<account>.workers.dev`). |
-> | **Create private Git repository** | **Leave it on** — this repo will hold your notes. |
-> | **Advanced settings → Build → Path** | **Set it to `/.web/`.** Required: the deploy shell lives in `.web`, not at the repo root. Without this the build fails. |
+> | **Create private Git repository** | Off by default — **turn it on** (recommended): a vault should hold your private things. |
+> | **Advanced settings → Build → Path** | **`/.web/`** |
 > | **Variables / secrets** (in the flow) | **Skip them here** — set them afterwards (see below), so you don't have to guess build-vs-runtime. |
+
+Click the button, then **come back here once the first build has finished** to continue:
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/marconucara/web-vault-template)
 
@@ -30,7 +32,7 @@ the **welcome note** on the site itself.
 
 ## After deploying
 
-### 1. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
+### ✏️ 1. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
 
 Lets the in-browser editor commit changes back to your repo. Create a
 **fine-grained GitHub token** with **Contents: write** on your new repository
@@ -38,7 +40,7 @@ only, then add it in **Worker → Settings → Variables and Secrets** as a **Se
 named `GITHUB_TOKEN`. It lives only as a Worker secret and never enters the site
 bundle. Until you set it, the site is read-only.
 
-### 2. Make it private — Cloudflare Access (recommended)
+### 🔒 2. Make it private — Cloudflare Access (recommended)
 
 Gate the whole site with **Cloudflare Access / Zero Trust**, keeping only
 `/shared/*` public. The exact hostname syntax for `*.workers.dev` (production +
@@ -46,7 +48,7 @@ preview) and the `/shared` `Bypass` are in WebVault's
 [**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.4.0/DEPLOY.md) —
 the full runbook for tokens, Access, and troubleshooting.
 
-### 3. (Optional) Faster Google Maps — `MAP_CACHE_KEY` + `SITE_URL` (build variables)
+### 🗺️ 3. (Optional) Faster Google Maps — `MAP_CACHE_KEY` + `SITE_URL` (build variables)
 
 Only worth it if your notes have **many** map pins. These are **build-time**
 variables (Workers Builds → **Build** → Variables and Secrets), *not* runtime
