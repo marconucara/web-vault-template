@@ -8,43 +8,56 @@ New to WebVault? It's a static web viewer and editor for Markdown knowledge
 vaults — browse notes in a browser, edit them with a WYSIWYG editor, and publish
 isolated public share links. See the [WebVault README](https://github.com/marconucara/web-vault#readme).
 
-## 1. Deploy to Cloudflare
+## Deploy to Cloudflare
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/marconucara/web-vault-template/tree/main/.web)
+> ### ⚠️ Read this before clicking
+>
+> The deploy button clones this template into **your** GitHub account and sets up
+> a Cloudflare Worker. The flow asks for a few things — set them like this:
+>
+> | Field | What to do |
+> |-------|------------|
+> | **Project name** | Your vault's name. It becomes the default URL (`<name>.<account>.workers.dev`). |
+> | **Create private Git repository** | **Leave it on** — this repo will hold your notes. |
+> | **Advanced settings → Build → Path** | **Set it to `/.web/`.** Required: the deploy shell lives in `.web`, not at the repo root. Without this the build fails. |
+> | **Variables / secrets** (in the flow) | **Skip them here** — set them afterwards (see below), so you don't have to guess build-vs-runtime. |
 
-Clicking the button **clones this template into your own GitHub account** and sets
-up a Cloudflare Worker connected to it. Follow the flow; the build settings come
-from `.web/wrangler.toml`.
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/marconucara/web-vault-template)
 
-> **Keep your new repository private** — it will hold your notes. Set it private
-> in your GitHub repo settings right after the button creates it.
+After the first build your site is live — **public and read-only** — with the
+starter vault. The two unlocks below are also waiting for you as a checklist in
+the **welcome note** on the site itself.
 
-After the first deploy the site is **public** and read-only. The next two steps
-turn on editing and privacy.
+## After deploying
 
-## 2. Turn on editing
+### 1. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
 
-Add a GitHub token so the in-browser editor can commit changes back to your repo.
+Lets the in-browser editor commit changes back to your repo. Create a
+**fine-grained GitHub token** with **Contents: write** on your new repository
+only, then add it in **Worker → Settings → Variables and Secrets** as a **Secret**
+named `GITHUB_TOKEN`. It lives only as a Worker secret and never enters the site
+bundle. Until you set it, the site is read-only.
 
-- Worker → **Settings → Variables and Secrets** → add a **Secret**
-  `GITHUB_TOKEN` = a fine-grained GitHub token with **Contents: write** on your
-  repository only. Without it the site is read-only; the token lives only as a
-  Worker secret and never enters the site bundle.
-
-## 3. Make it private (recommended)
+### 2. Make it private — Cloudflare Access (recommended)
 
 Gate the whole site with **Cloudflare Access / Zero Trust**, keeping only
-`/shared/*` public. The exact steps — including the `*.workers.dev` Access
-hostname syntax (production + preview) and the `/shared` `Bypass` — are in
-WebVault's [**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.4.0/DEPLOY.md),
-which is the full runbook for tokens, Access, and troubleshooting.
+`/shared/*` public. The exact hostname syntax for `*.workers.dev` (production +
+preview) and the `/shared` `Bypass` are in WebVault's
+[**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.4.0/DEPLOY.md) —
+the full runbook for tokens, Access, and troubleshooting.
 
-## 4. Make it yours
+### 3. (Optional) Faster Google Maps — `MAP_CACHE_KEY` + `SITE_URL` (build variables)
+
+Only worth it if your notes have **many** map pins. These are **build-time**
+variables (Workers Builds → **Build** → Variables and Secrets), *not* runtime
+secrets. See DEPLOY.md for details (including the `/maps-cache.json` Access
+Bypass). Skip this until you need it.
+
+## Make it yours
 
 - Edit or delete `welcome.md` and add your own `.md` notes anywhere in this repo.
 - Saved views live in `views/*.yml`.
-- Every push rebuilds and redeploys automatically. Editor commits do too — as
-  long as the build watch path reaches the vault (see DEPLOY.md).
+- Every push rebuilds and redeploys automatically, and so do editor commits.
 - To use an **existing** vault instead of this starter, move the `.web/` folder
   into that vault's repository (or set `VAULT_DIR`) and connect that repository.
 
