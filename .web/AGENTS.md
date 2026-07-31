@@ -14,9 +14,9 @@ configuration** — change config here; app changes go to the `web-vault` packag
 - `yarn build` — full static build into `./dist`
 - `yarn preview` — serve the build
 
-All wrap the `web-vault` `wv` CLI. Generated content (`.wv/`), Functions
-(`functions/`), and `dist/` are build artifacts (gitignored) — never edit or
-commit them by hand.
+All wrap the `web-vault` `wv` CLI. Generated content and the Worker entry
+(`.wv/`) and `dist/` are build artifacts (gitignored) — never edit or commit
+them by hand.
 
 ## Rules
 

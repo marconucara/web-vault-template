@@ -1,53 +1,50 @@
 # WebVault starter template
 
 A ready-to-deploy Markdown vault with [WebVault](https://github.com/marconucara/web-vault)
-already wired in. Start from this repository, deploy it to Cloudflare Pages, get a
-working web reader/editor with a small starter vault, then point it at your own
-notes.
+already wired in. Deploy it to Cloudflare Workers in a few clicks, get a working
+web reader/editor with a small starter vault, then point it at your own notes.
 
 New to WebVault? It's a static web viewer and editor for Markdown knowledge
 vaults — browse notes in a browser, edit them with a WYSIWYG editor, and publish
 isolated public share links. See the [WebVault README](https://github.com/marconucara/web-vault#readme).
 
-## 1. Get your own copy
+## 1. Deploy to Cloudflare
 
-Click **“Use this template” → “Create a new repository”** at the top of this repo
-(or clone it) to get your own copy in your GitHub account.
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/marconucara/web-vault-template/tree/main/.web)
 
-**Keep the new repository private** — it is going to hold your notes.
+Clicking the button **clones this template into your own GitHub account** and sets
+up a Cloudflare Worker connected to it. Follow the flow; the build settings come
+from `.web/wrangler.toml`.
 
-## 2. Deploy to Cloudflare Pages
+> **Keep your new repository private** — it will hold your notes. Set it private
+> in your GitHub repo settings right after the button creates it.
 
-The site is a static build behind **Cloudflare Access** (private); only
-`/shared/*` is public. The in-browser editor commits back to your repository
-through a Pages Function. In the Cloudflare dashboard:
+After the first deploy the site is **public** and read-only. The next two steps
+turn on editing and privacy.
 
-1. **Create a Pages project → Connect to Git**, and pick your new repository.
-   Set the build configuration (you set this **once**; later pushes redeploy
-   automatically):
-   - **Root directory:** `.web`
-   - **Build command:** `yarn build`
-   - **Build output directory:** `dist`
+## 2. Turn on editing
 
-2. **Add the editor token** (Settings → Environment variables → add a
-   **Secret**): `GITHUB_TOKEN` = a fine-grained GitHub token with **Contents:
-   write** on your repository only. Without it the deployed site is read-only.
-   The token lives only as a Cloudflare secret and never enters the site bundle.
+Add a GitHub token so the in-browser editor can commit changes back to your repo.
 
-3. **Gate the site with Cloudflare Access:** an `Allow` policy over the whole
-   domain, plus a path-scoped `Bypass` on `/shared/*` so share links stay public.
+- Worker → **Settings → Variables and Secrets** → add a **Secret**
+  `GITHUB_TOKEN` = a fine-grained GitHub token with **Contents: write** on your
+  repository only. Without it the site is read-only; the token lives only as a
+  Worker secret and never enters the site bundle.
 
-Deploy. Open the site (behind Access): your starter vault loads, and — with the
-token set — the editor commits changes straight back to your repository.
+## 3. Make it private (recommended)
 
-> Why no “Deploy to Cloudflare” button? That button only supports Cloudflare
-> Workers, not Pages projects, so the one-time **Connect to Git** setup above is
-> the supported path here.
+Gate the whole site with **Cloudflare Access / Zero Trust**, keeping only
+`/shared/*` public. The exact steps — including the `*.workers.dev` Access
+hostname syntax (production + preview) and the `/shared` `Bypass` — are in
+WebVault's [**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.4.0/DEPLOY.md),
+which is the full runbook for tokens, Access, and troubleshooting.
 
-## 3. Make it yours
+## 4. Make it yours
 
 - Edit or delete `welcome.md` and add your own `.md` notes anywhere in this repo.
 - Saved views live in `views/*.yml`.
+- Every push rebuilds and redeploys automatically. Editor commits do too — as
+  long as the build watch path reaches the vault (see DEPLOY.md).
 - To use an **existing** vault instead of this starter, move the `.web/` folder
   into that vault's repository (or set `VAULT_DIR`) and connect that repository.
 
@@ -58,14 +55,16 @@ token set — the editor commits changes straight back to your repository.
   inside it.
 - `.web/` — the WebVault deployment shell: config plus the `web-vault` dependency.
   It owns no app code; the application and build pipeline live in the `web-vault`
-  package. Don't hand-edit generated build artifacts (`.web/.wv/`,
-  `.web/functions/`, `.web/dist/`).
+  package. Don't hand-edit generated build artifacts (`.web/.wv/`, `.web/dist/`).
 
 ## Prefer setting up an existing vault by hand?
 
-If you already have a Markdown vault and a coding agent, the agent-driven setup
-path may fit better than this template. See
-[WebVault's SETUP.md](https://github.com/marconucara/web-vault/blob/v0.3.0/SETUP.md).
+Two onboarding paths exist — pick the one that fits:
+
+- **This template + one-click** (above) — start from near-zero, no coding agent.
+- **Agent-driven setup into an existing vault** — if you already have a Markdown
+  vault and a coding agent, see
+  [WebVault's SETUP.md](https://github.com/marconucara/web-vault/blob/v0.4.0/SETUP.md).
 
 ## License
 
