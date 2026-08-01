@@ -433,7 +433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/view@npm:^6.0.0, @codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0, @codemirror/view@npm:^6.27.0, @codemirror/view@npm:^6.37.0, @codemirror/view@npm:^6.42.0":
+"@codemirror/view@npm:^6.0.0, @codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0, @codemirror/view@npm:^6.27.0, @codemirror/view@npm:^6.37.0, @codemirror/view@npm:^6.42.0, @codemirror/view@npm:^6.43.7":
   version: 6.43.7
   resolution: "@codemirror/view@npm:6.43.7"
   dependencies:
@@ -3453,7 +3453,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vault-web@workspace:."
   dependencies:
-    web-vault: "github:marconucara/web-vault#v0.4.0"
+    web-vault: "github:marconucara/web-vault#v0.5.0"
   languageName: unknown
   linkType: soft
 
@@ -3527,14 +3527,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vault@github:marconucara/web-vault#v0.4.0":
-  version: 0.4.0
-  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=43a950629521e61934422186c490d3546aa203a0"
+"web-vault@github:marconucara/web-vault#v0.5.0":
+  version: 0.5.0
+  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=14fb31f06d4694a69cc9cb9bcfb517621b4f3819"
   dependencies:
     "@blocknote/core": "npm:^0.51.4"
     "@blocknote/mantine": "npm:^0.51.4"
     "@blocknote/react": "npm:^0.51.4"
     "@codemirror/lang-markdown": "npm:^6.5.1"
+    "@codemirror/view": "npm:^6.43.7"
     "@mantine/core": "npm:^9.4.1"
     "@mantine/hooks": "npm:^9.4.1"
     "@uiw/react-codemirror": "npm:^4.25.11"
@@ -3550,7 +3551,7 @@ __metadata:
     vite: "npm:^5.4.11"
   bin:
     wv: bin/wv.mjs
-  checksum: 10c0/7584add47df5fcee35be0a89dec39dec22d578c667aa06e1819e56ebfdf259db3535d3e17c7e57aaad3beda70e020f59e76645f98ea74ec0d7ea4933ba3e1a74
+  checksum: 10c0/d589eb9f114512314203fe0ac92dd49fa272ab493be672038e50c0138ecd69a4f07a0e16bc11731595fa39e4492ee691dac6d28f149e8dc9a3cd466e6384932c
   languageName: node
   linkType: hard
 
