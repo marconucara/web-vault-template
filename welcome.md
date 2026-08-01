@@ -5,20 +5,20 @@ type: Note
 
 You deployed this in a few clicks. It's a **starter vault** — a tiny Markdown
 knowledge base with WebVault already wired in. Right now the site is **public and
-read-only**. Two unlocks finish the setup: the first lets you edit from the
-browser, the second closes the site to everyone but you.
+read-only**. Two unlocks finish the setup: the first closes the site to everyone
+but you, the second lets you edit from the browser.
 
 ## ✅ Finish your setup
 
+- [ ] **🔒 Make it private (⚠️ important).** Until you do this, anyone with the
+  URL can read your vault. Gate the site with **Cloudflare Access / Zero Trust**
+  so only you can read it, while `/shared/<id>/` links stay public. Steps are in
+  WebVault's `DEPLOY.md`.
 - [ ] **✏️ Turn on web editing.** Add a `GITHUB_TOKEN` **secret** to your Worker
   (Settings → Variables and Secrets) — a fine-grained GitHub token with
   *Contents: write* on this repository only. Then this note becomes editable and
   your changes commit straight back to the repo. *(Runtime secret — see the
   repo's `README.md`.)*
-- [ ] **🔒 Make it private (⚠️ important).** Until you do this, anyone with the
-  URL can read your vault. Gate the site with **Cloudflare Access / Zero Trust**
-  so only you can read it, while `/shared/<id>/` links stay public. Steps are in
-  WebVault's `DEPLOY.md`.
 - [ ] **🗺️ (Optional) Speed up maps.** If you add *many* map pins, set
   `MAP_CACHE_KEY` + `SITE_URL` as **build** variables to cache Google Maps
   lookups between builds. Skip it until you need it.

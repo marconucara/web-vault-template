@@ -32,21 +32,21 @@ the **welcome note** on the site itself.
 
 ## After deploying
 
-### ✏️ 1. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
-
-Lets the in-browser editor commit changes back to your repo. Create a
-**fine-grained GitHub token** with **Contents: write** on your new repository
-only, then add it in **Worker → Settings → Variables and Secrets** as a **Secret**
-named `GITHUB_TOKEN`. It lives only as a Worker secret and never enters the site
-bundle. Until you set it, the site is read-only.
-
-### 🔒 2. Make it private — Cloudflare Access (⚠️ important)
+### 🔒 1. Make it private — Cloudflare Access (⚠️ important)
 
 Gate the whole site with **Cloudflare Access / Zero Trust**, keeping only
 `/shared/*` public. The exact hostname syntax for `*.workers.dev` (production +
 preview) and the `/shared` `Bypass` are in WebVault's
 [**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.4.0/DEPLOY.md#3-gate-the-site-with-cloudflare-access) —
 the full runbook for tokens, Access, and troubleshooting.
+
+### ✏️ 2. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
+
+Lets the in-browser editor commit changes back to your repo. Create a
+**fine-grained GitHub token** with **Contents: write** on your new repository
+only, then add it in **Worker → Settings → Variables and Secrets** as a **Secret**
+named `GITHUB_TOKEN`. It lives only as a Worker secret and never enters the site
+bundle. Until you set it, the site is read-only.
 
 ### 🗺️ 3. (Optional) Faster Google Maps — `MAP_CACHE_KEY` + `SITE_URL` (build variables)
 
