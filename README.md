@@ -37,7 +37,7 @@ the **welcome note** on the site itself.
 Gate the whole site with **Cloudflare Access / Zero Trust**, keeping only
 `/shared/*` public. The exact hostname syntax for `*.workers.dev` (production +
 preview) and the `/shared` `Bypass` are in WebVault's
-[**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.5.0/DEPLOY.md#3-gate-the-site-with-cloudflare-access) —
+[**DEPLOY.md**](https://github.com/marconucara/web-vault/blob/v0.5.1/DEPLOY.md#3-gate-the-site-with-cloudflare-access) —
 the full runbook for tokens, Access, and troubleshooting.
 
 ### ✏️ 2. Turn on web editing — `GITHUB_TOKEN` (runtime secret)
@@ -79,7 +79,7 @@ Two onboarding paths exist — pick the one that fits:
 - **This template + one-click** (above) — start from near-zero, no coding agent.
 - **Agent-driven setup into an existing vault** — if you already have a Markdown
   vault and a coding agent, see
-  [WebVault's SETUP.md](https://github.com/marconucara/web-vault/blob/v0.5.0/SETUP.md).
+  [WebVault's SETUP.md](https://github.com/marconucara/web-vault/blob/v0.5.1/SETUP.md).
 
 ## License
 
