@@ -20,7 +20,7 @@ isolated public share links. See the [WebVault README](https://github.com/marcon
 > | **Project name** | Your vault's name. It becomes the default URL (`<name>.<account>.workers.dev`). |
 > | **Create private Git repository** | Off by default — **turn it on** (recommended): a vault should hold your private things. |
 > | **Advanced settings → Build → Path** | **`/.web/`** |
-> | **Variables / secrets** (in the flow) | **Skip them here** — set them afterwards (see below), so you don't have to guess build-vs-runtime. |
+> | **Variables / secrets** (in the flow) | **Skip them here** — the welcome note walks you through them afterwards, so you don't have to guess build-vs-runtime. |
 
 Click the button, then **come back here once the first build has finished** to continue:
 
@@ -37,25 +37,6 @@ turning on web editing, and the rest of what WebVault does.
 Open your new site and read it there — or read [`welcome.md`](welcome.md) here on
 GitHub.
 
-## Make it yours
-
-- Edit or delete the starter notes and add your own `.md` files anywhere in this repo.
-- Saved views live in `views/*.yml`; note types live in `_types/`.
-- Every push rebuilds and redeploys automatically, and so do editor commits.
-- To use an **existing** vault instead of this starter, move the `.web/` folder
-  into that vault's repository (or set `VAULT_DIR`) and connect that repository.
-
-## What's in here
-
-- `welcome.md` and the example notes around it — `_types/`, `projects/`,
-  `people/`, `topics/`, `recipes/`, `trips/`, `views/`, `attachments/` — the
-  starter vault, all plain Markdown. This repository is shaped exactly like a
-  normal Markdown vault with a `.web/` folder inside it. Delete whatever you
-  don't want.
-- `.web/` — the WebVault deployment shell: config plus the `web-vault` dependency.
-  It owns no app code; the application and build pipeline live in the `web-vault`
-  package. Don't hand-edit generated build artifacts (`.web/.wv/`, `.web/dist/`).
-
 ## Prefer setting up an existing vault by hand?
 
 Two onboarding paths exist — pick the one that fits:
@@ -64,6 +45,8 @@ Two onboarding paths exist — pick the one that fits:
 - **Agent-driven setup into an existing vault** — if you already have a Markdown
   vault and a coding agent, see
   [WebVault's SETUP.md](https://github.com/marconucara/web-vault/blob/main/SETUP.md).
+  You can also do it by hand: move the `.web/` folder into that vault's
+  repository (or set `VAULT_DIR`) and connect that repository instead of this one.
 
 ## License
 
