@@ -3453,7 +3453,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vault-web@workspace:."
   dependencies:
-    web-vault: "github:marconucara/web-vault#v0.6.1"
+    web-vault: "github:marconucara/web-vault#v0.8.1"
   languageName: unknown
   linkType: soft
 
@@ -3527,9 +3527,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vault@github:marconucara/web-vault#v0.6.1":
-  version: 0.6.1
-  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=0c2f26e917f93c5344e5014004ac0513c482b9ac"
+"web-vault@github:marconucara/web-vault#v0.8.1":
+  version: 0.8.1
+  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=32527efb7ec3209aabd2e95e909dc6abf7354d2a"
   dependencies:
     "@blocknote/core": "npm:^0.51.4"
     "@blocknote/mantine": "npm:^0.51.4"
@@ -3551,7 +3551,7 @@ __metadata:
     vite: "npm:^5.4.11"
   bin:
     wv: bin/wv.mjs
-  checksum: 10c0/606ac8cfcc1eac19dfae09084e68a33f4371becb467ddf362087580d92d16fc4f53dc533df5d34e1f94f5402b6063ac8f91fe49537b058d75cb682656ce56a2d
+  checksum: 10c0/bf307de1d387f451f3daeb70c385ad7b97d1eaa474f3246e791fe256a47d9ac66c087946f189e5cfe42ee4d5452e224f517c52a93b9ebb6b838df4c0adab0a47
   languageName: node
   linkType: hard
 
