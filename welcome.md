@@ -32,10 +32,10 @@ Typing two square brackets in the editor opens a picker of your notes, and picki
 
 ### 🗺️ Drop a place on the map
 
-Paste any Google Maps link and it becomes an interactive **place card**. The link text is yours to write — treat it as a note to yourself about the place, not just its name:
+Paste any Google Maps link and it becomes an interactive **place card**, with the address, rating and photo filled in for you. Both the words around the link are yours: the **link text titles** the card, and whatever you write **after the link describes** it. Leave either out and the card just does without — drop the link text and the card takes the name Google knows the place by.
 
-1. https://maps.app.goo.gl/tsNtY7RE3xrHDpEA9
-2. https://maps.app.goo.gl/2HXLY9kL6q124FuA7
+1. [The Colosseum](https://maps.app.goo.gl/tsNtY7RE3xrHDpEA9) a title of your own, and a line about *why* the place is on your list
+2. [Duomo](https://maps.app.goo.gl/2HXLY9kL6q124FuA7) a short title reads better than the official one in a long list
 3. https://maps.app.goo.gl/XW2d4k9eK1RuWg618
 
 Put your places in a numbered list and each pin picks up its number, so a card and its marker on the map are easy to match — which is what turns a day of an itinerary into something you can actually read. [[rome-in-5-days]] is a worked example: a five-day trip with every restaurant, museum and stop as a pin.
