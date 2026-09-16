@@ -401,6 +401,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codemirror/merge@npm:^6.12.2":
+  version: 6.12.2
+  resolution: "@codemirror/merge@npm:6.12.2"
+  dependencies:
+    "@codemirror/language": "npm:^6.0.0"
+    "@codemirror/state": "npm:^6.0.0"
+    "@codemirror/view": "npm:^6.17.0"
+    "@lezer/highlight": "npm:^1.0.0"
+    style-mod: "npm:^4.1.0"
+  checksum: 10c0/8bc3b88b6f9e4d6fc08e0d66cc1c7786570b4226fa87ebb177e935f54499cf4fb93264eaaffb3098cd000e1276eef2d7c93a09501048cc5828a2ca61adbcb686
+  languageName: node
+  linkType: hard
+
 "@codemirror/search@npm:^6.0.0":
   version: 6.7.1
   resolution: "@codemirror/search@npm:6.7.1"
@@ -3501,7 +3514,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vault-web@workspace:."
   dependencies:
-    web-vault: "github:marconucara/web-vault#v0.12.0"
+    web-vault: "github:marconucara/web-vault#v0.12.3"
   languageName: unknown
   linkType: soft
 
@@ -3575,14 +3588,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vault@github:marconucara/web-vault#v0.12.0":
-  version: 0.12.0
-  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=1fe7e861449b98339a2f153083aa5dfe5a25dc0d"
+"web-vault@github:marconucara/web-vault#v0.12.3":
+  version: 0.12.3
+  resolution: "web-vault@https://github.com/marconucara/web-vault.git#commit=496bb603556c4a1b50a09c41ae4973bef48a322a"
   dependencies:
     "@blocknote/core": "npm:^0.51.4"
     "@blocknote/mantine": "npm:^0.51.4"
     "@blocknote/react": "npm:^0.51.4"
     "@codemirror/lang-markdown": "npm:^6.5.1"
+    "@codemirror/merge": "npm:^6.12.2"
     "@codemirror/view": "npm:^6.43.7"
     "@mantine/core": "npm:^9.4.1"
     "@mantine/hooks": "npm:^9.4.1"
@@ -3602,7 +3616,7 @@ __metadata:
     vite: "npm:^5.4.11"
   bin:
     wv: bin/wv.mjs
-  checksum: 10c0/5caa80fd16425ca38280bdaed42b9cdb22352e6681a0577de7214965af8cdcdfa2cf88fc65654a499113082dc395188ad1af99a9f6e3e3c86d11714659a75530
+  checksum: 10c0/1b1c3e8a7a1da4bbda1f8ce141912e3a6b5f13cf32f77ceac0ad79e2c138fab1bb45aa9119cde2e0e95ee2c1c13e2e7910b65130b55991db3e2e2ccab478c1af
   languageName: node
   linkType: hard
 
